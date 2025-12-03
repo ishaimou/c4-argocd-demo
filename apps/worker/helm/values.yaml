@@ -2,9 +2,6 @@ image:
   repository: ishaimou/votingapp_worker
   tag: latest
   pullPolicy: IfNotPresent
-service:
-  name: worker
-  clusterIP: None
 resources:
   limits:
     cpu: 100m
