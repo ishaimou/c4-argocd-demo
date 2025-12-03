@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Production environment
+name: vote-app
+version: "0.1.0"

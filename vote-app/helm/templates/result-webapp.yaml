@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: result-webapp
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: production
+  source:
+    path: apps/result/helm
+    repoURL: https://github.com/ishaimou/c4-argocd-demo.git
+    targetRevision: HEAD
+    helm:
+      values: |
+        image:
+          tag: latest
+        ingress:
+          host: result-webapp.172.18.0.5.nip.io
+      version: v3
+  destination:
+    namespace: production
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

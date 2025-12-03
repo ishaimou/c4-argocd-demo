@@ -1,0 +1,25 @@
+image:
+  repository: ishaimou/votingapp_vote
+  tag: latest
+  pullPolicy: IfNotPresent
+ingress:
+  enabled: true
+  className: cloud-provider-kind
+  host: kind.cluster.local
+service:
+  name: vote-webapp
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 80
+resources:
+  limits:
+    cpu: 100m
+    memory: 256Mi
+  requests:
+    cpu: 80m
+    memory: 128Mi
+readinessProbe:
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 1
+replicaCount: 2
