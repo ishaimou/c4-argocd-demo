@@ -1,10 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: worker
   name: worker
-  namespace: production
 spec:
   replicas: 1
   selector:

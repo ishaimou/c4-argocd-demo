@@ -8,7 +8,7 @@ metadata:
 spec:
   project: production
   source:
-    path: apps/worker
+    path: apps/worker/kustomize
     repoURL: https://github.com/ishaimou/c4-argocd-demo.git
     targetRevision: HEAD
   destination:
